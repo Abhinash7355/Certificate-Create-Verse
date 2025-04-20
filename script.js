@@ -54,8 +54,8 @@ const generatePDF = async (name, branch) => {
 
   // Draw a string of text for the name
   firstPage.drawText(name, {
-    x: 420,
-    y: 364,
+    x: 478,
+    y: 370,
     size: 20,
     font: SanChezFont,
     color: rgb(0, 0, 0), // Black color for certificate name
@@ -63,8 +63,8 @@ const generatePDF = async (name, branch) => {
 
   // Draw a string of text for the branch
   firstPage.drawText(branch, {
-    x: 190,
-    y: 342,
+    x: 125,
+    y: 345,
     size: 20,
     font: SanChezFont,
     color: rgb(0, 0, 0), // Black color for branch

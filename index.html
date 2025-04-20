@@ -5,43 +5,140 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Generator</title>
+    <title>CreatiVerse</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Add Google Fonts for beautiful typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add custom styles for a modern look -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+        }
 
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        select,
+        button {
+            width: 90%;
+            margin: 10px auto;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .professional-name {
+            font-family: 'Times New Roman', serif;
+        }
+
+        .bold-branch {
+            font-weight: bold;
+        }
+    </style>
 </head>
 
-<body style="text-align: center; color: black;">
+<body>
+    <video autoplay loop muted id="bgvideo"
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
 
-    <img src="https://codedamn.com/assets/images/red-logo.png" width="75" alt="codedamn logo"
-        style="padding-top:10% ;" /><br>
+    <div class="container">
+        <img src="https://codedamn.com/assets/images/red-logo.png" width="75" alt="codedamn logo" /><br>
+        <h3>Get your certificates here!</h3>
+        <h1><b>CreatiVerse</b></h1>
+        <h3>ENTER YOUR NAME:</h3>
+        <main>
+            <!-- Replacing text input with a select dropdown for name -->
+            <select id="name" class="professional-name" required>
+                <option value="">Select your name</option>
+                <option value="Anushka Rai">Anushka Rai</option>
+                <option value="Gunjan Raj">Gunjan Raj</option>
+                <option value="Aarti">Aarti</option>
+                <option value="Alisha Kumari">Alisha Kumari</option>
+                <option value="Bablu Kushwaha">Bablu Kushwaha</option>
+                <option value="Ujjwal Srivastava">Ujjwal Srivastava</option>
+                <option value="Harsh Verma">Harsh Verma</option>
+                <option value="Akhilesh Yadav">Akhilesh Yadav</option>
+                <option value="Amit Yadav">Amit Yadav</option>
+                <option value="Vinay Gupta">Vinay Gupta</option>
+                <option value="Alok Kumar">Alok Kumar</option>
+                <option value="Abhay Jaiswal">Abhay Jaiswal</option>
+                <option value="Ayushi Pandey">Ayushi Pandey</option>
+                <option value="Anjum">Anjum</option>
+                <option value="Gulshan Chaurasiya">Gulshan Chaurasiya</option>
+                <option value="Arun Verma">Arun Verma</option>
+                <option value="Abhishek Gond">Abhishek Gond</option>
+                <option value="Ilma Siddiqui">Ilma Siddiqui</option>
+                <option value="Setu Rastogi">Setu Rastogi</option>
+                <option value="Aditya Anand">Aditya Anand</option>
+                <option value="Anmol Singh">Anmol Singh</option>
+                <option value="Abhishek Yadav">Abhishek Yadav</option>
+                <option value="Pratham Awasthi">Pratham Awasthi</option>
+                <option value="Raj Karan">Raj Karan</option>
+                <option value="Rishabh Kumar">Rishabh Kumar</option>
+                <option value="Krishna Chauhan">Krishna Chauhan</option>
+                <option value="Ritik Sharma">Ritik Sharma</option>
+                <option value="Jatin Awasthi">Jatin Awasthi</option>
+                <option value="Shahabudin Ansari">Shahabudin Ansari</option>
+                <option value="Ananya Chaturvedi">Ananya Chaturvedi</option>
+                <option value="Tanisha Rathore">Tanisha Rathore</option>
+                <option value="Anjali">Anjali</option>
+                <option value="Rajat Singh">Rajat Singh</option>
+                <option value="Priya Singh">Priya Singh</option>
+                <option value="Riddhi Kumari">Riddhi Kumari</option>
+                <option value="Arti Gupta">Arti Gupta</option>
+                <option value="Arjun Kumar">Arjun Kumar</option>
+                <option value="Arjun Kushwaha">Arjun Kushwaha</option>
 
-    <h3 style="padding-top:2% ;">Get your certificates here!</h3>
+            </select><br>
+            <!-- Replacing text input with a select dropdown for branch -->
+            <select id="branch" class="bold-branch" required>
+                <option value="">Select your branch</option>
+                <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                <option value="Artificial Intelligence and Machine Learning">Artificial Intelligence and Machine
+                    Learning</option>
+                <option value="Information Technology">Information Technology</option>
 
-    <h1 style="color: black;"><b>Certificate Generator</b></h1>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
 
-    <h3 style="padding-top:2% ;">ENTER YOUR NAME:</h3>
+                <option value="Data Science">Data Science</option>
 
-    <main>
-        <!-- Replacing text input with a select dropdown for name -->
-        <select id="name" required
-            style="padding: 10px; border: none; border-bottom: 2px solid rgb(0, 0, 0); text-align: center; outline: none;">
-            <option value="">Select your name</option>
-            <option value="Alice">Alice</option>
-            <option value="Bob">Bob</option>
-            <option value="Charlie">Charlie</option>
-        </select><br>
-        <!-- Replacing text input with a select dropdown for branch -->
-        <select id="branch" required
-            style="padding: 10px; border: none; border-bottom: 2px solid rgb(0, 0, 0); text-align: center; outline: none;">
-            <option value="">Select your branch</option>
-            <option value="Computer Science">Computer Science</option>
-            <option value="Mechanical">Mechanical</option>
-            <option value="Electrical">Electrical</option>
-        </select><br>
-        <button id="submit"
-            style="background-color: green; color:white; font-size:1.2em;border:none; border-radius:5px; margin:20px; padding:5px 15px; font-weight: 600; cursor: pointer;">Get
-            Certificate</button>
-    </main>
+
+            </select><br>
+            <button id="submit">Get Certificate</button>
+        </main>
+    </div>
 
     <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
     <script src="./FileSaver.js"></script>
