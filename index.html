@@ -1,182 +1,583 @@
 <!DOCTYPE html>
 <html lang="en">
-<head></head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CreatiVerse</title>
-    <link rel="stylesheet" href="style.css" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-        }
-        
-        /* Main container styling */
-        .container {
-            max-width: 400px;
-            width: 90%;
-            margin: 100px auto;
-            position: relative;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9);
-            text-align: center;
-            /* background-color: #fff; */
-            -webkit-backdrop-filter: blur(90);
-            backdrop-filter: blur(90);
-        }
-        
-        h1, h3 {
-            margin-top: 0;
-            color: #333;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 
-        }
-        
-        select,
-        button {
-            width: 90%;
-            margin: 10px auto;
-            padding: 12px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            font-size: 1em;
-            box-sizing: border-box;
-        }
-        
-        button {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        button:hover {
-            background-color: #218838;
-        }
-        
-        .professional-name {
-            font-family: 'Times New Roman', serif;
-        }
-        
-        .bold-branch {
-            font-weight: bold;
-        }
-        
-        /* Background video styling */
-        #bgVideo {
-            width: 100%;
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreatiVerse</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Global resets and full height */
+        html,
+        body {
             height: 100%;
-            object-fit: cover;
-            filter: brightness(0.8);
+            margin: 0;
+            padding: 0;
         }
-        
-        #vdocontainer {
+
+        /* Galaxy background with dark overlay */
+        body {
+            background: url('https://example.com/galaxy.jpg') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        body::before {
+            content: "";
             position: absolute;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
             z-index: -1;
         }
-        
+
+        /* Flex centering for main content */
+        .main-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Certificate container styles */
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            padding: 40px 20px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Logo in top-left */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            z-index: 10;
+        }
+
+        /* Headings and text */
+        .container h1 {
+            font-size: 2em;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        .container h3 {
+            font-size: 1.2em;
+            margin: 10px 0;
+            font-weight: normal;
+        }
+
+        .container p {
+            margin: 15px 0;
+            font-size: 1em;
+            color: #333;
+        }
+
+        /* Custom styled dropdowns */
+        .custom-select {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background: #fff;
+            border: 2px solid #ccc;
+            padding: 10px 40px 10px 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            margin: 10px 0;
+            transition: border-color 0.3s ease;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="12"%20height="12"%20viewBox="0%200%2012%2012"><path%20fill="%23999"%20d="M6,9L1,4h10L6,9z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+
+        .custom-select:hover {
+            border-color: #888;
+        }
+
+        .custom-select:focus {
+            outline: none;
+            border-color: #28a745;
+        }
+
+        /* Styled button */
+        .btn-certificate {
+            background-color: #28a745;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn-certificate:hover {
+            background-color: #218838;
+            box-shadow: 0 0 10px rgba(33, 136, 56, 0.5);
+        }
+
+        .btn-certificate:active {
+            background-color: #1e7e34;
+        }
+
         /* Responsive adjustments */
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .container {
-                margin: 50px auto;
-                padding: 15px;
+                padding: 30px 15px;
             }
-        
-            select, button {
-                width: 95%;
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                max-width: 800px;
+                padding: 40px;
+            }
+        }
+
+        /* Updated card grid to ensure responsiveness */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        /* Enhance card hover effect */
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img.featured {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            /* base max height */
+            object-fit: contain;
+        }
+
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 768px) {
+            .card img.featured {
+                max-height: 350px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card img.featured {
+                max-height: 400px;
+            }
+        }
+
+        .card .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9em;
+        }
+
+        .card .stats span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .card .creator {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .card .creator img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+
+        .card .creator span {
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        /* Additional responsive breakpoints */
+        @media (max-width: 768px) {
+            .card-grid {
+                gap: 10px;
                 padding: 10px;
-                font-size: 0.9em;
-            }
-            
-            h1, h3 {
-                font-size: 1.2em;
             }
         }
     </style>
 </head>
+
 <body>
-    <div id="vdocontainer">
-        <video id="bgVideo" src="./background.mp4" autoplay loop muted></video>
+    <div class="main-wrapper">
+        <div class="container">
+            <h3>Get your certificates here!</h3>
+            <h1>CreatiVerse</h1>
+            <p>Enter your name:</p>
+            <main>
+                <select id="name" class="custom-select professional-name" required title="Select your name">
+                    <option value="">Select your name</option>
+                    <option value="Anushka Rai">Anushka Rai</option>
+                    <option value="Gunjan Raj">Gunjan Raj</option>
+                    <option value="Aarti">Aarti</option>
+                    <option value="Alisha Kumari">Alisha Kumari</option>
+                    <option value="Bablu Kushwaha">Bablu Kushwaha</option>
+                    <option value="Ujjwal Srivastava">Ujjwal Srivastava</option>
+                    <option value="Harsh Verma">Harsh Verma</option>
+                    <option value="Akhilesh Yadav">Akhilesh Yadav</option>
+                    <option value="Amit Yadav">Amit Yadav</option>
+                    <option value="Vinay Gupta">Vinay Gupta</option>
+                    <option value="Alok Kumar">Alok Kumar</option>
+                    <option value="Abhay Jaiswal">Abhay Jaiswal</option>
+                    <option value="Ayushi Pandey">Ayushi Pandey</option>
+                    <option value="Anjum">Anjum</option>
+                    <option value="Gulshan Chaurasiya">Gulshan Chaurasiya</option>
+                    <option value="Arun Verma">Arun Verma</option>
+                    <option value="Abhishek Gond">Abhishek Gond</option>
+                    <option value="Ilma Siddiqui">Ilma Siddiqui</option>
+                    <option value="Setu Rastogi">Setu Rastogi</option>
+                    <option value="Aditya Anand">Aditya Anand</option>
+                    <option value="Anmol Singh">Anmol Singh</option>
+                    <option value="Abhishek Yadav">Abhishek Yadav</option>
+                    <option value="Pratham Awasthi">Pratham Awasthi</option>
+                    <option value="Raj Karan">Raj Karan</option>
+                    <option value="Rishabh Kumar">Rishabh Kumar</option>
+                    <option value="Krishna Chauhan">Krishna Chauhan</option>
+                    <option value="Ritik Sharma">Ritik Sharma</option>
+                    <option value="Jatin Awasthi">Jatin Awasthi</option>
+                    <option value="Shahabudin Ansari">Shahabudin Ansari</option>
+                    <option value="Ananya Chaturvedi">Ananya Chaturvedi</option>
+                    <option value="Tanisha Rathore">Tanisha Rathore</option>
+                    <option value="Anjali">Anjali</option>
+                    <option value="Rajat Singh">Rajat Singh</option>
+                    <option value="Priya Singh">Priya Singh</option>
+                    <option value="Riddhi Kumari">Riddhi Kumari</option>
+                    <option value="Arti Gupta">Arti Gupta</option>
+                    <option value="Arjun Kumar">Arjun Kumar</option>
+                    <option value="Arjun Kushwaha">Arjun Kushwaha</option>
+                </select>
+                <select id="branch" class="custom-select bold-branch" required title="Select your branch">
+                    <option value="">Select your branch</option>
+                    <option value="Computer Science and Engineering">Computer Science and Engineering</option>
+                    <option value="Artificial Intelligence and Machine Learning">Artificial Intelligence and Machine
+                        Learning</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Data Science">Data Science</option>
+                </select>
+                <button id="submit" class="btn-certificate">Get Certificate</button>
+            </main>
+        </div>
     </div>
-    
-    <div class="container">
-        <img src="https://codedamn.com/assets/images/red-logo.png" width="75" alt="codedamn logo" /><br>
-        <h3>Get your certificates here!</h3>
-        <h1><b>CreatiVerse</b></h1>
-        <h3>ENTER YOUR NAME:</h3>
-        <main>
-            <!-- Name dropdown -->
-            <select id="name" class="professional-name" required title="Select your name">
-                <option value="">Select your name</option>
-                <option value="Anushka Rai">Anushka Rai</option>
-                <option value="Gunjan Raj">Gunjan Raj</option>
-                <option value="Aarti">Aarti</option>
-                <option value="Alisha Kumari">Alisha Kumari</option>
-                <option value="Bablu Kushwaha">Bablu Kushwaha</option>
-                <option value="Ujjwal Srivastava">Ujjwal Srivastava</option>
-                <option value="Harsh Verma">Harsh Verma</option>
-                <option value="Akhilesh Yadav">Akhilesh Yadav</option>
-                <option value="Amit Yadav">Amit Yadav</option>
-                <option value="Vinay Gupta">Vinay Gupta</option>
-                <option value="Alok Kumar">Alok Kumar</option>
-                <option value="Abhay Jaiswal">Abhay Jaiswal</option>
-                <option value="Ayushi Pandey">Ayushi Pandey</option>
-                <option value="Anjum">Anjum</option>
-                <option value="Gulshan Chaurasiya">Gulshan Chaurasiya</option>
-                <option value="Arun Verma">Arun Verma</option>
-                <option value="Abhishek Gond">Abhishek Gond</option>
-                <option value="Ilma Siddiqui">Ilma Siddiqui</option>
-                <option value="Setu Rastogi">Setu Rastogi</option>
-                <option value="Aditya Anand">Aditya Anand</option>
-                <option value="Anmol Singh">Anmol Singh</option>
-                <option value="Abhishek Yadav">Abhishek Yadav</option>
-                <option value="Pratham Awasthi">Pratham Awasthi</option>
-                <option value="Raj Karan">Raj Karan</option>
-                <option value="Rishabh Kumar">Rishabh Kumar</option>
-                <option value="Krishna Chauhan">Krishna Chauhan</option>
-                <option value="Ritik Sharma">Ritik Sharma</option>
-                <option value="Jatin Awasthi">Jatin Awasthi</option>
-                <option value="Shahabudin Ansari">Shahabudin Ansari</option>
-                <option value="Ananya Chaturvedi">Ananya Chaturvedi</option>
-                <option value="Tanisha Rathore">Tanisha Rathore</option>
-                <option value="Anjali">Anjali</option>
-                <option value="Rajat Singh">Rajat Singh</option>
-                <option value="Priya Singh">Priya Singh</option>
-                <option value="Riddhi Kumari">Riddhi Kumari</option>
-                <option value="Arti Gupta">Arti Gupta</option>
-                <option value="Arjun Kumar">Arjun Kumar</option>
-                <option value="Arjun Kushwaha">Arjun Kushwaha</option>
-            </select><br>
-            
-            <!-- Branch dropdown -->
-            <select id="branch" class="bold-branch" required title="Select your name">
-                <option value="">Select your branch</option>
-                <option value="Computer Science and Engineering">Computer Science and Engineering</option>
-                <option value="Artificial Intelligence and Machine Learning">Artificial Intelligence and Machine Learning</option>
-                <option value="Information Technology">Information Technology</option>
-                <option value="Electrical Engineering">Electrical Engineering</option>
-                <option value="Mechanical Engineering">Mechanical Engineering</option>
-                <option value="Civil Engineering">Civil Engineering</option>
-                <option value="Data Science">Data Science</option>
-            </select><br>
-            <button id="submit">Get Certificate</button>
-        </main>
-    </div>
-    
+
+    <section class="card-grid">
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.36_62752e9c.jpg"
+                alt="Design Image 1">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.40_47fae25c.jpg"
+                alt="Design Image 2">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.40_e53c4f6e.jpg"
+                alt="Design Image 3">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.41_0d3ee8d7.jpg"
+                alt="Design Image 4">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.46_d505123b.jpg"
+                alt="Design Image 5">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.50_109f4258.jpg"
+                alt="Design Image 6">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.50_30065560.jpg"
+                alt="Design Image 7">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.51_0e09c08d.jpg"
+                alt="Design Image 8">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.55_4c2adbd4.jpg"
+                alt="Design Image 9">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.58_47be5f5c.jpg"
+                alt="Design Image 10">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.58_64d86058.jpg"
+                alt="Design Image 11">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.41.59_5e92b67f.jpg"
+                alt="Design Image 12">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.42.03_7c92d7a8.jpg"
+                alt="Design Image 13">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.42.06_658eebac.jpg"
+                alt="Design Image 14">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <img class="featured" src="./images/WhatsApp Image 2025-04-23 at 13.42.07_0504d7a4.jpg"
+                alt="Design Image 15">
+            <div class="stats flex justify-between items-center p-4">
+                <div class="like-system flex items-center gap-2">
+                    <button class="like-btn text-gray-500" data-likes="0">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                    <span class="like-count text-gray-700 font-medium">0</span>
+                </div>
+                <button class="share-btn text-gray-500">
+                    <i class="fas fa-share"></i>
+                </button>
+            </div>
+        </div>
+
+    </section>
+
     <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
     <script src="./FileSaver.js"></script>
     <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
     <script src="./script.js"></script>
+    <script>
+        // Like button functionality
+        document.querySelectorAll('.like-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const likeCount = button.nextElementSibling;
+                let likes = parseInt(button.getAttribute('data-likes'));
+                if (button.classList.contains('text-red-500')) {
+                    button.classList.remove('text-red-500');
+                    button.classList.add('text-gray-500');
+                    likes--;
+                } else {
+                    button.classList.remove('text-gray-500');
+                    button.classList.add('text-red-500');
+                    likes++;
+                }
+                button.setAttribute('data-likes', likes);
+                likeCount.textContent = likes;
+            });
+        });
+        // Share button functionality
+        document.querySelectorAll('.share-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'CreatiVerse',
+                        text: 'Check out this design!',
+                        url: window.location.href
+                    })
+                        .then(() => console.log('Shared successfully'))
+                        .catch(error => console.error('Error sharing', error));
+                } else {
+                    // Fallback: copy URL to clipboard if supported, else show alert
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(window.location.href)
+                            .then(() => alert('Link copied to clipboard'))
+                            .catch(() => alert('Failed to copy link'));
+                    } else {
+                        alert('Share functionality is not supported in this browser.');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>
